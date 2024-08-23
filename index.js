@@ -36,4 +36,4 @@ app.get("/post/:id", (req, res)=>{
     let message = messages[req.params.id]
     res.render("showpost", {message:message})
 })
-app.listen(3000)
+app.listen(8000)
