@@ -38,7 +38,7 @@ const { render } = require("ejs");
   }
   
   async function createUsernamePost(req, res) {
-    const { username } = req.body;
+    const  username = req.body.username;
     await db.insertUsername(username);
     res.redirect("/");
   }
