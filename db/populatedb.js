@@ -2,12 +2,12 @@ const { Client } = require("pg");
 const { argv } = require('node:process');
 
 const SQL = `
-CREATE TABLE IF NOT EXISTS testusernames (
+CREATE TABLE usernames (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   username VARCHAR ( 255 )
 );
 
-INSERT INTO testusernames (testusername) 
+INSERT INTO usernames  
 VALUES
   ('Bryan'),
   ('Odin'),
@@ -17,7 +17,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: argv[2],
+    connectionString: process.argv[2],
   });
   await client.connect();
   await client.query(SQL);
